@@ -100,7 +100,7 @@ jobs:
     name: Publish repo
     needs:
       - build_individual
-    if: "github.repository == 'keiyoushi/extensions-source'"
+    if: "github.repository == 'moolmop/extensions-source'"
     runs-on: ubuntu-latest
     steps:
       - name: Download APK artifacts
@@ -132,7 +132,7 @@ jobs:
       - name: Checkout repo branch
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          repository: keiyoushi/extensions
+          repository: moolmop/extensions
           token: ${{ secrets.BOT_PAT }}
           ref: repo
           path: repo
