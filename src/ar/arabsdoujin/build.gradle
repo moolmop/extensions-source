@@ -3,7 +3,7 @@ ext {
     extClass = '.ArabsDoujin'
     themePkg = 'zeistmanga'
     baseUrl = 'https://www.arabsdoujin.online'
-    overrideVersionCode = 0
+    overrideVersionCode = 1
     isNsfw = true
 }
 
