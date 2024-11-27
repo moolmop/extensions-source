@@ -68,6 +68,18 @@ jobs:
           java-version: 17
           distribution: temurin
 
+      - name: Install Android SDK and Accept Licenses
+        run: |
+          # Install SDK Command Line Tools
+          wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
+          unzip commandlinetools-linux-7583922_latest.zip -d $HOME/Android
+          mkdir -p $HOME/.android
+          echo "sdk.dir=$HOME/Android" > $HOME/.android/repositories.cfg
+          
+          # Install necessary Android SDK components
+          yes | $HOME/Android/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/Android --licenses
+          $HOME/Android/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/Android "platform-tools" "build-tools;33.0.0" "platforms;android-33"
+        
       - name: Prepare signing key
         run: echo "testkey" > signingkey.jks
 
